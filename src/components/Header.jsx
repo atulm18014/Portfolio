@@ -27,11 +27,11 @@ const Header = ({ menuOpen, setMenuOpen }) => {
           duration={500}
           className="text-lg font-mono cursor-pointer"
         >
-          <span className="text-accent font-medium">&#47;&#47;atul.</span> 
+          <span className="text-orange-500 font-mono font-medium  hover:text-accent">&#47;&#47;atul.</span> 
         </Link>
         
         <div className="hidden md:flex items-center space-x-6">
-          {['projects', 'about', 'contact'].map((item, i) => (
+          {['projects', 'about', 'contact'].map((item) => (
             <Link
               key={item}
               to={item}
@@ -39,15 +39,15 @@ const Header = ({ menuOpen, setMenuOpen }) => {
               smooth={true}
               offset={-100}
               duration={500}
-              className="text-sm hover-underline cursor-pointer capitalize"
+              className="text-base font-mono font-semibold  cursor-pointer capitalize    hover:text-orange-500"
             >
-              <span className="text-accent font-mono text-xs mr-1">0{i+1}.</span> {item}
+              {item}
             </Link>
           ))}
           <a 
             href="/resume.pdf" 
             target="_blank"
-            className="py-2 px-4 border border-accent text-accent rounded hover:bg-accent/10 transition-colors text-sm"
+            className="font-mono font-semibold py-2 px-4 border border-accent text-accent rounded-md hover:bg-accent/10 transition-colors text-sm"
           >
             Resume
           </a>
