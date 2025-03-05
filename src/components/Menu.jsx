@@ -3,10 +3,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const Menu = ({ isOpen, setIsOpen }) => {
   const menuItems = [
-    { name: 'Home', to: 'hero', num: '00' },
-    { name: 'Projects', to: 'projects', num: '01' },
-    { name: 'About', to: 'about', num: '02' },
-    { name: 'Contact', to: 'contact', num: '03' },
+    { name: 'Home', to: 'hero' },
+    { name: 'Projects', to: 'projects' },
+    { name: 'About', to: 'about' },
+    { name: 'Contact', to: 'contact' },
   ];
 
   return (
@@ -34,10 +34,9 @@ const Menu = ({ isOpen, setIsOpen }) => {
                     smooth={true}
                     offset={-100}
                     duration={500}
-                    className="text-2xl font-medium hover:text-accent transition-colors flex items-center"
+                    className="text-2xl font-medium hover:text-accent transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    <span className="text-accent font-mono text-sm mr-2">{item.num}.</span>
                     {item.name}
                   </Link>
                 </motion.div>

@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 place-content-center justify-evenly">
           {/* Left Section */}
           <div className="w-full text-center mx-auto">
-            <p className="text-lg font-semibold">
+            <p className="text-2xl font-semibold">
           <span className="text-pink-400">Building </span>  the bridges {" "}
              of <span className="text-blue-400">Decentralization</span> 
             </p>
@@ -34,20 +34,20 @@ const Footer = () => {
 
           {/* Middle Section - Explore */}
           <div className="w-full text-center mx-auto space-y-3">
-            <h3 className="text-orange-500 font-semibold">Explore</h3>
-            <ul className="space-y-2 mx-auto text-center">
+            <h3 className="text-orange-500 font-semibold text-xl">Explore</h3>
+            <ul className="space-y-2 mx-auto text-center text-lg">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:underline  hover:text-accent">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:underline  hover:text-accent">
                   About Me
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:underline  hover:text-accent">
                   Contact
                 </a>
               </li>
@@ -56,7 +56,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="w-full text-center mx-auto">
-            <h3 className="text-blue-400 font-semibold">Follow Me</h3>
+            <h3 className="text-blue-400 font-semibold text-xl">Follow Me</h3>
             <div className="flex space-x-4 mt-2 justify-center">
               <a
                 href="https://www.linkedin.com/in/maurya-atul/"
@@ -136,11 +136,9 @@ const Footer = () => {
               <a 
                 href="mailto:atulmaurya18.04@gmail.com" 
                 aria-label="Send email to Atul Maurya" 
-                title="Send me an email"
-                onClick={(e) => {
-                  window.location.href = "mailto:atulmaurya18.04@gmail.com";
-                }}
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-green-500 transition duration-300 group"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-green-500 hover:bg-green-500 hover:text-black transition duration-300 group"
               >
                 <span className="transform transition-transform duration-500 group-hover:rotate-45 inline-block">
                   <ArrowRight size={20} />

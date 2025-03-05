@@ -12,8 +12,8 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-lg text-accent font-mono mb-5">Hi, my name is</h1>
-        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4">
+        <h1 className="text-lg text-orange-500 font-mono mb-3">Hi, my name is</h1>
+        <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-4">
           Atul Maurya
         </h2>
         <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-secondary mb-8">
@@ -22,6 +22,8 @@ const Hero = () => {
               'I build things for the web.',
               2000,
               'I contribute in Open Source.',
+              2000,
+              '#Web 3.0',
               2000,
             ]}
             wrapper="span"

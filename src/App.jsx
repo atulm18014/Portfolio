@@ -15,7 +15,7 @@ function App() {
   const [showContent, setShowContent] = useState(false);
   
   return (
-    <>
+    <div className="min-h-screen bg-black text-white">
       <AnimatePresence mode='wait'>
         {isLoading && (
           <PreLoader 
@@ -28,7 +28,7 @@ function App() {
       <AnimatePresence mode='wait'>
         {showContent && (
           <motion.div
-            className="bg-background min-h-screen"
+            className="min-h-screen"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -66,7 +66,7 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }
 

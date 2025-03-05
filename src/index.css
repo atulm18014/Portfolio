@@ -1,4 +1,22 @@
+/* Import existing Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+/* Import local fonts */
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Variable font weight range */
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -10,8 +28,14 @@ html {
 }
 
 body {
-  @apply bg-background text-primary;
-  font-family: 'Inter', sans-serif;
+  color: white;
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  background-color: #000000; /* Changed to pure black */
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
 }
 
 .btn {
@@ -19,11 +43,11 @@ body {
 }
 
 .btn-primary {
-  @apply bg-accent text-white hover:bg-opacity-80;
+  @apply bg-blue-500 text-white hover:bg-opacity-80;
 }
 
 .btn-outline {
-  @apply border border-accent text-accent hover:bg-accent hover:text-white;
+  @apply border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white;
 }
 
 .section-heading {
@@ -32,7 +56,7 @@ body {
 
 .section-heading::after {
   content: '';
-  @apply absolute w-20 h-1 bg-accent bottom-0 left-1/2 transform -translate-x-1/2 -bottom-3;
+  @apply absolute w-20 h-1 bg-blue-500 bottom-0 left-1/2 transform -translate-x-1/2 -bottom-3;
 }
 
 .gradient-bg {
@@ -46,7 +70,7 @@ body {
 
 .hover-underline::after {
   content: '';
-  @apply absolute left-0 bottom-0 w-0 h-[1px] bg-accent transition-all duration-300;
+  @apply absolute left-0 bottom-0 w-0 h-[1px] bg-blue-500 transition-all duration-300;
 }
 
 .hover-underline:hover::after {
@@ -69,11 +93,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-background;
+  background-color: #1f2937;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-800 rounded-full;
+  @apply bg-gray-700 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -82,10 +106,10 @@ body {
 
 /* Link focus states */
 a:focus, button:focus {
-  @apply outline-none ring-2 ring-accent ring-opacity-50;
+  @apply outline-none ring-2 ring-blue-500 ring-opacity-50;
 }
 
 /* Selection color */
 ::selection {
-  @apply bg-accent/30 text-white;
+  @apply bg-blue-500/30 text-white;
 }

@@ -2,20 +2,34 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        background: "#0E100F", // Updated to the new dark color
+        background: "#000000", // Changed to pure black
         primary: "#ffffff",
-        secondary: "#888888",
-        accent: "#64ffda",
+        accent: "#3b82f6", // blue-500
       },
       fontFamily: {
-        sans: ["'Inter'", "sans-serif"],
-        mono: ["'Roboto Mono'", "monospace"],
+        sans: ['Montserrat', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['Roboto Mono', 'ui-monospace', 'monospace'],
+        bebas: ['Bebas Neue', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        heading: ['Bebas Neue', 'sans-serif'],
       },
+      rotate: {
+        '40': '40deg',
+        '160': '160deg',
+        '-45': '-45deg',
+      },
+      transitionDuration: {
+        '1500': '1500ms',
+        '2000': '2000ms',
+      },
+      transitionTimingFunction: {
+        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
+      }
     },
   },
   plugins: [],
