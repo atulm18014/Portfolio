@@ -59,7 +59,7 @@ const PreLoader = ({ setIsLoading, setShowContent }) => {
             }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-500 mb-2">
               {greetings[currentIndex].text}
             </h1>
           </motion.div>
