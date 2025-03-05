@@ -1,12 +1,17 @@
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const Menu = ({ isOpen, setIsOpen }) => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  // Menu items with proper navigation type
   const menuItems = [
-    { name: 'Home', to: 'hero' },
-    { name: 'Projects', to: 'projects' },
-    { name: 'About', to: 'about' },
-    { name: 'Contact', to: 'contact' },
+    { name: 'Home', type: 'router', to: '/' },
+    { name: 'Projects', type: 'router', to: '/projects' }, // Changed to router type
+    { name: 'About', type: 'router', to: '/about' },
+    { name: 'Tech Stack', type: 'scroll', to: 'techstack' },
   ];
 
   return (
@@ -28,17 +33,27 @@ const Menu = ({ isOpen, setIsOpen }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 + 0.1 }}
                 >
-                  <Link
-                    to={item.to}
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className="text-2xl font-medium hover:text-accent transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
+                  {(item.type === 'scroll' && isHomePage) ? (
+                    <ScrollLink
+                      to={item.to}
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      className="text-2xl font-medium hover:text-accent transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </ScrollLink>
+                  ) : (
+                    <RouterLink
+                      to={item.to}
+                      className="text-2xl font-medium hover:text-accent transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </RouterLink>
+                  )}
                 </motion.div>
               ))}
               
@@ -50,6 +65,7 @@ const Menu = ({ isOpen, setIsOpen }) => {
                 <a 
                   href="/resume.pdf" 
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block mt-4 py-2 px-6 border border-accent text-accent rounded hover:bg-accent/10 transition-colors"
                 >
                   Resume

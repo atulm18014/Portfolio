@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const ProjectCard = ({ index, title, description, tags, github, external, image }) => {
   return (
@@ -7,40 +8,57 @@ const ProjectCard = ({ index, title, description, tags, github, external, image 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="flex flex-col bg-background border border-gray-800 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+      className="glass-card group overflow-hidden hover:shadow-glow hover:border-accent/20 transition-all duration-500"
     >
-      <div className="relative h-48 bg-gray-800 overflow-hidden">
+      <div className="relative h-48 bg-background-lighter overflow-hidden">
+        <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
         <img 
-          src={image} 
+          src={image || "https://via.placeholder.com/600x400?text=Project"}
           alt={title} 
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>
       <div className="flex flex-col flex-grow p-6">
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-secondary mb-4 text-sm flex-grow">{description}</p>
+        <h3 className="text-xl font-semibold mb-2 group-hover:text-accent transition-colors duration-300">{title}</h3>
+        <p className="text-secondary mb-4 text-sm flex-grow line-clamp-3">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map(tag => (
-            <span key={tag} className="text-xs text-accent font-mono">{tag}</span>
+            <span key={tag} className="text-xs font-mono px-2 py-1 rounded-md bg-background-accent text-muted border border-border">{tag}</span>
           ))}
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
           {github && (
-            <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub Repository">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-secondary hover:text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <a 
+              href={github} 
+              target="_blank" 
+              rel="noreferrer" 
+              aria-label="GitHub Repository"
+              className="text-muted hover:text-accent transition-colors duration-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
               </svg>
             </a>
           )}
           {external && (
-            <a href={external} target="_blank" rel="noreferrer" aria-label="External Link">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-secondary hover:text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <a 
+              href={external} 
+              target="_blank" 
+              rel="noreferrer" 
+              aria-label="External Link"
+              className="text-muted hover:text-accent transition-colors duration-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
                 <line x1="10" y1="14" x2="21" y2="3"></line>
               </svg>
             </a>
           )}
+          <span className="flex-1"></span>
+          <a href={external || github} target="_blank" rel="noreferrer" className="btn-minimal text-xs">
+            Learn more
+          </a>
         </div>
       </div>
     </motion.div>
@@ -84,28 +102,40 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20">
-      <div className="mb-12">
-        <motion.h2 
-          className="text-2xl font-bold mb-4 flex items-center"
+    <section id="projects" className="py-24">
+      <div className="mb-16">
+        <motion.p
+          className="subheading mb-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-accent font-mono text-3xl mr-2">Some Things I've Built</span> 
-          
-        </motion.h2>
-        <motion.div 
-          className="h-px bg-gray-800 w-full"
-          initial={{ width: 0 }}
-          whileInView={{ width: "100%" }}
+          MY WORK
+        </motion.p>
+        
+        <motion.h2 
+          className="heading mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        ></motion.div>
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          Featured <span className="text-accent">Projects</span>
+        </motion.h2>
+        
+        <motion.p
+          className="text-secondary max-w-2xl mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Here's a selection of my recent work. These projects showcase my skills in both front-end and back-end development.
+        </motion.p>
       </div>
       
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
           <ProjectCard 
             key={index}
@@ -114,6 +144,29 @@ const Projects = () => {
           />
         ))}
       </div>
+      
+      {/* View All Projects Button */}
+      <motion.div 
+        className="mt-16 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <Link to="/projects" className="btn btn-primary inline-flex items-center group">
+          <span>View All Projects</span>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            className="h-4 w-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </Link>
+        <p className="text-muted mt-4 text-sm">Explore my complete portfolio of work</p>
+      </motion.div>
     </section>
   );
 };

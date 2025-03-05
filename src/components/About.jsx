@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const technologies = [
@@ -13,105 +14,91 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20">
-      <div className="mb-12">
-        <motion.h2
-          className="text-2xl font-bold mb-4 flex items-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-accent font-mono text-3xl mr-2">About Me</span>
-          
-        </motion.h2>
+    <section id="about" className="py-24">
+      <motion.div 
+        className="grid grid-cols-1 lg:grid-cols-2 gap-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        {/* Image Column */}
         <motion.div
-          className="h-px bg-gray-800 w-full"
-          initial={{ width: 0 }}
-          whileInView={{ width: "100%" }}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        ></motion.div>
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-10">
-        <motion.div
-          className="md:col-span-2 text-secondary space-y-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative"
         >
-          <p>
-            Hello! My name is Atul Maurya, a passionate Software Engineer
-            focused on building scalable blockchain applications, enhancing
-            decentralized user experiences, and optimizing smart contract
-            development. With a strong interest in <b>Blockchain</b>,{" "}
-            <b>Open Source Development</b>, and <b>Machine Learning</b>. I'm
-            eager to contribute to innovative projects, collaborate with
-            industry professionals, and drive the adoption of secure,
-            transparent, and efficient blockchain solutions.
-          </p>
-          {/* <p>
-            Fast-forward to today, and I've had the privilege of working at a
-            <a href="#" className="text-accent">
-              {" "}
-              software agency
-            </a>
-            ,
-            <a href="#" className="text-accent">
-              {" "}
-              a start-up
-            </a>
-            , and
-            <a href="#" className="text-accent">
-              {" "}
-              a large corporation
-            </a>
-            . My main focus these days is building accessible, inclusive
-            products and digital experiences at{" "}
-            <a href="#" className="text-accent">
-              my company
-            </a>{" "}
-            for a variety of clients.
-          </p> */}
-          <p>Here are a few technologies I've been working with recently:</p>
-
-          <ul className="grid grid-cols-2 gap-2 mt-4">
-            {technologies.map((tech, i) => (
-              <motion.li
-                key={i}
-                className="flex items-center space-x-2 text-sm"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.1 }}
-              >
-                <span className="text-accent">▹</span>
-                <span>{tech}</span>
-              </motion.li>
-            ))}
-          </ul>
-        </motion.div>
-
-        <motion.div
-          className="relative group"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="absolute -inset-2 rounded-3xl border border-accent/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div className="relative rounded-3xl mt-1 overflow-hidden bg-gray-800">
-            <img
-              src="src/assets/img/atul.jpg"
-              alt="Atul"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="relative aspect-square w-full max-w-md mx-auto lg:mx-0">
+            <div className="absolute inset-0 rounded-md bg-accent/5 opacity-30 blur-2xl -z-10"></div>
+            <div className="absolute -inset-0.5 rounded-md bg-gradient-to-tr from-accent/20 to-transparent opacity-20 -z-10"></div>
+            <div className="relative h-full w-full overflow-hidden rounded-md bg-background-lighter border border-border">
+              {/* Replace with your actual profile image */}
+              <img 
+                src="src/assets/img/atul.jpg" 
+                alt="Atul Maurya" 
+                className="h-full w-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
+              />
+            </div>
           </div>
         </motion.div>
-      </div>
+        
+        {/* Content Column */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-col justify-center"
+        >
+          <h2 className="subheading mb-2">ABOUT ME</h2>
+          <h3 className="text-3xl md:text-4xl font-bold mb-6">Developing innovative <span className="text-accent">digital solutions</span> for tomorrow.</h3>
+          
+          <p className="text-secondary mb-4">
+            I'm a full-stack developer with a passion for blockchain technology. With expertise spanning web development, smart contracts, and decentralized applications, I'm dedicated to creating user-centered digital experiences.
+          </p>
+          
+          <p className="text-secondary mb-6">
+            My technical journey has equipped me with a deep understanding of both front-end and back-end technologies, allowing me to build complete solutions from concept to deployment.
+          </p>
+          
+          <div className="grid grid-cols-2 gap-6 mb-8">
+            <div>
+              <h4 className="text-lg font-semibold mb-2">Frontend</h4>
+              <ul className="text-muted space-y-1">
+                <li>React & Next.js</li>
+                <li>TypeScript</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-2">Backend</h4>
+              <ul className="text-muted space-y-1">
+                <li>Node.js</li>
+                <li>Python</li>
+                <li>MongoDB & SQL</li>
+              </ul>
+            </div>
+          </div>
+          
+          <Link 
+            to="/about" 
+            className="btn btn-outline self-start flex items-center group"
+          >
+            <span>Read More About Me</span>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-4 w-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

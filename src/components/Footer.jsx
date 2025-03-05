@@ -138,7 +138,7 @@ const Footer = () => {
                 aria-label="Send email to Atul Maurya" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-green-500 hover:bg-green-500 hover:text-black transition duration-300 group"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-green-500 transition duration-300 group"
               >
                 <span className="transform transition-transform duration-500 group-hover:rotate-45 inline-block">
                   <ArrowRight size={20} />
