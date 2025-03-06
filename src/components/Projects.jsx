@@ -106,7 +106,7 @@ const Projects = () => {
     <section id="projects" className="py-24">
       <div className="mb-16">
         <motion.p
-          className="subheading mb-3"
+          className="subheading mb-2"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

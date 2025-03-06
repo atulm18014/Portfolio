@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -12,33 +12,23 @@ import TechStack from './components/TechStack';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import WhatIDo from './components/WhatIDo';
+import TechStackPage from './pages/TechStackPage';
 
-// Main content wrapper that changes based on routes
-const MainContent = () => {
-  const location = useLocation();
-  
-  // Route-based rendering
-  if (location.pathname === '/about') {
-    return <AboutPage />;
-  } else if (location.pathname === '/projects') {
-    return <ProjectsPage />;
-  }
-  
-  // Otherwise render the home page components
+// Home page component to organize all home sections
+const HomePage = () => {
   return (
-    <motion.main 
+    <motion.div
       className="px-5 sm:px-8 md:px-12 lg:px-16 mx-auto max-w-6xl pt-28 sm:pt-32 relative z-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.4 }}
-      key="home-page"
+      transition={{ duration: 0.5 }}
     >
       <Hero />
       <About />
       <WhatIDo />
       <Projects />
       <TechStack />
-    </motion.main>
+    </motion.div>
   );
 };
 
@@ -91,9 +81,14 @@ function App() {
               <Menu isOpen={menuOpen} setIsOpen={setMenuOpen} />
               
               {/* Routes for page content */}
-              <Routes>
-                <Route path="*" element={<MainContent />} />
-              </Routes>
+              <main>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/projects" element={<ProjectsPage />} />
+                  <Route path="/techstack" element={<TechStackPage />} />
+                </Routes>
+              </main>
               
               {!isLoading && (
                 <motion.div

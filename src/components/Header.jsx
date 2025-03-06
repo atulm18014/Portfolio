@@ -17,12 +17,12 @@ const Header = ({ menuOpen, setMenuOpen }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Updated navigation items with projects route
+  // Updated navigation items with techstack changed to router type
   const navItems = [
     {name: 'home', type: 'scroll', to: '/' },
     { name: 'about', type: 'router', to: '/about' },
-    { name: 'projects', type: 'router', to: '/projects' }, // Changed to router type
-    { name: 'techstack', type: 'scroll', to: 'techstack' },
+    { name: 'projects', type: 'router', to: '/projects' },
+    { name: 'techstack', type: 'router', to: '/techstack' }, // Changed to router type and path
   ];
 
   return (
