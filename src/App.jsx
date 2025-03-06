@@ -24,7 +24,7 @@ const MainContent = () => {
     return <ProjectsPage />;
   }
   
-  // Otherwise render the home page components with the new WhatIDo section
+  // Otherwise render the home page components
   return (
     <motion.main 
       className="px-5 sm:px-8 md:px-12 lg:px-16 mx-auto max-w-6xl pt-28 sm:pt-32 relative z-10"
@@ -35,9 +35,9 @@ const MainContent = () => {
     >
       <Hero />
       <About />
-      <WhatIDo /> {/* Add the new WhatIDo component here - before Projects */}
+      <WhatIDo />
       <Projects />
-      <TechStack /> 
+      <TechStack />
     </motion.main>
   );
 };
@@ -49,13 +49,13 @@ function App() {
   
   return (
     <Router>
-      <div className="min-h-screen bg-black text-secondary relative">
-        {/* Subtle background elements */}
-        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-30">
+      <div className="min-h-screen bg-background text-secondary relative">
+        {/* Background elements */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-50">
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>
           
-          {/* Very subtle glow accents */}
+          {/* Subtle glow accents */}
           <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-accent/5 mix-blend-screen filter blur-[100px]"></div>
           <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full bg-accent/5 mix-blend-screen filter blur-[80px]"></div>
         </div>

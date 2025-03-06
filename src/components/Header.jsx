@@ -20,8 +20,8 @@ const Header = ({ menuOpen, setMenuOpen }) => {
   // Updated navigation items with projects route
   const navItems = [
     {name: 'home', type: 'scroll', to: '/' },
-    { name: 'projects', type: 'router', to: '/projects' }, // Changed to router type
     { name: 'about', type: 'router', to: '/about' },
+    { name: 'projects', type: 'router', to: '/projects' }, // Changed to router type
     { name: 'techstack', type: 'scroll', to: 'techstack' },
   ];
 
@@ -65,14 +65,14 @@ const Header = ({ menuOpen, setMenuOpen }) => {
                   smooth={true}
                   offset={-100}
                   duration={500}
-                  className="text-sm font-medium cursor-pointer capitalize text-muted hover:text-primary relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                  className="text-base font-medium cursor-pointer capitalize text-muted hover:text-accent relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.name}
                 </ScrollLink>
               ) : (
                 <RouterLink
                   to={item.to}
-                  className="text-sm font-medium cursor-pointer capitalize text-muted hover:text-primary relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                  className="text-base font-medium cursor-pointer capitalize text-muted hover:text-accent relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.name}
                 </RouterLink>

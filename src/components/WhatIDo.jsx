@@ -59,7 +59,7 @@ const WhatIDo = () => {
     <section className="py-24" id="services">
       <div className="mb-16">
         <motion.p
-          className="subheading mb-3"
+          className="subheading mb-3 font-mono"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -69,7 +69,7 @@ const WhatIDo = () => {
         </motion.p>
         
         <motion.h2 
-          className="heading mb-8"
+          className="font-bebas text-5xl md:text-6xl mb-8 tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -79,7 +79,7 @@ const WhatIDo = () => {
         </motion.h2>
         
         <motion.p
-          className="text-secondary max-w-2xl mb-16"
+          className="font-montserrat text-secondary max-w-2xl mb-16 font-light"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -101,30 +101,30 @@ const WhatIDo = () => {
               duration: 0.5,
               delay: index * 0.1 + 0.3
             }}
-            className="card group hover:shadow-glow border-border hover:border-accent/30 bg-background-lighter transition-all duration-500"
+            className="card group hover:shadow-glow border-border hover:border-accent/40 bg-background-lighter transition-all duration-500"
           >
-            <div className="bg-black/30 rounded-full w-14 h-14 flex items-center justify-center text-accent mb-6 group-hover:bg-accent/10 transition-colors duration-500">
+            <div className="bg-black/40 rounded-full w-14 h-14 flex items-center justify-center text-accent mb-6 group-hover:bg-accent/10 transition-colors duration-500">
               {service.icon}
             </div>
             
-            <h3 className="text-xl font-semibold mb-3 group-hover:text-accent transition-colors duration-300">
+            <h3 className="font-bebas text-2xl mb-3 tracking-wide group-hover:text-accent transition-colors duration-300">
               {service.title}
             </h3>
             
-            <p className="text-secondary text-sm leading-relaxed">
+            <p className="font-montserrat text-secondary text-sm leading-relaxed font-light">
               {service.description}
             </p>
             
             <div className="mt-6 pt-4 border-t border-border">
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center text-xs text-muted">
-                  <span className="mr-2">Technologies:</span>
+                  <span className="mr-2 font-montserrat">Technologies:</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {service.technologies.map((tech, i) => (
                     <span 
                       key={i} 
-                      className="text-xs font-mono px-2 py-1 rounded-md bg-background-accent text-secondary border border-border"
+                      className="text-xs font-mono px-2 py-1 rounded-md bg-background-accent text-secondary border border-border hover:border-accent/30 transition-colors duration-300"
                     >
                       {tech}
                     </span>
@@ -138,7 +138,7 @@ const WhatIDo = () => {
       
       {/* Bottom gradient line */}
       <motion.div 
-        className="mt-24 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"
+        className="mt-24 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"
         initial={{ opacity: 0, scaleX: 0 }}
         whileInView={{ opacity: 1, scaleX: 1 }}
         viewport={{ once: true }}
