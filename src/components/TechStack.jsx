@@ -190,7 +190,7 @@ const TechStack = () => {
     <section id="techstack" className="py-24">
       <div className="mb-16 max-w-3xl">
         <motion.p
-          className="subheading mb-3 text-base"  // Increased from text-sm
+          className="font-mono subheading mb-3 text-base"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -200,7 +200,7 @@ const TechStack = () => {
         </motion.p>
         
         <motion.h2 
-          className="heading mb-5 text-4xl md:text-5xl lg:text-6xl" // Increased heading size
+          className="font-bebas mb-5 text-5xl md:text-6xl tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -210,7 +210,7 @@ const TechStack = () => {
         </motion.h2>
         
         <motion.p
-          className="text-secondary text-balance text-lg" // Increased from base size
+          className="font-montserrat text-secondary text-balance text-lg font-light"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -263,8 +263,8 @@ const TechStack = () => {
             transition={{ duration: 0.3, delay: 0.03 * (index % 15) }}
             whileHover={{ 
               y: -5, 
-              boxShadow: '0 5px 15px rgba(88, 166, 255, 0.08)',
-              borderColor: 'rgba(88, 166, 255, 0.2)',
+              boxShadow: '0 5px 15px rgba(255, 107, 53, 0.1)',
+              borderColor: 'rgba(255, 107, 53, 0.3)',
             }}
             className="glass-card flex flex-col items-center justify-center py-6 px-4 group aspect-square"
           >
