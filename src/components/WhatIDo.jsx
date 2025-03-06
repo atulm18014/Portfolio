@@ -13,19 +13,21 @@ const serviceCards = [
       </svg>
     ),
     title: "Web Development",
-    description: "Building responsive, performant web applications with React, Next.js, and modern frontend technologies."
+    description: "Building responsive, performant web applications with React, Next.js, and modern frontend technologies.",
+    technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript"]
   },
   {
     id: 2,
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-        <line x1="8" y1="21" x2="16" y2="21"></line>
+        <line x1="8" y="21" x2="16" y2="21"></line>
         <line x1="12" y1="17" x2="12" y2="21"></line>
       </svg>
     ),
     title: "Backend Development",
-    description: "Creating scalable backend systems with Node.js, Express, MongoDB, PostgreSQL and RESTful APIs."
+    description: "Creating scalable backend systems with Node.js, Express, MongoDB, PostgreSQL and RESTful APIs.",
+    technologies: ["Node.js", "Express", "MongoDB", "PostgreSQL"]
   },
   {
     id: 3,
@@ -36,7 +38,8 @@ const serviceCards = [
       </svg>
     ),
     title: "Blockchain Development",
-    description: "Developing smart contracts, dApps, and Web3 integrations using Ethereum, Solidity, and related technologies."
+    description: "Developing smart contracts, dApps, and Web3 integrations using Ethereum, Solidity, and related technologies.",
+    technologies: ["Ethereum", "Solidity", "Web3.js", "Hardhat"]
   },
   {
     id: 4,
@@ -46,7 +49,8 @@ const serviceCards = [
       </svg>
     ),
     title: "AI & ML Integration",
-    description: "Implementing machine learning models and AI services into applications for enhanced functionality and analytics."
+    description: "Implementing machine learning models and AI services into applications for enhanced functionality and analytics.",
+    technologies: ["Python", "TensorFlow", "PyTorch", "scikit-learn"]
   }
 ];
 
@@ -97,9 +101,9 @@ const WhatIDo = () => {
               duration: 0.5,
               delay: index * 0.1 + 0.3
             }}
-            className="card group hover:shadow-glow border-border hover:border-accent/20 transition-all duration-500"
+            className="card group hover:shadow-glow border-border hover:border-accent/30 bg-background-lighter transition-all duration-500"
           >
-            <div className="bg-background-accent rounded-full w-14 h-14 flex items-center justify-center text-accent mb-6 group-hover:bg-accent/10 transition-colors duration-500">
+            <div className="bg-black/30 rounded-full w-14 h-14 flex items-center justify-center text-accent mb-6 group-hover:bg-accent/10 transition-colors duration-500">
               {service.icon}
             </div>
             
@@ -112,11 +116,18 @@ const WhatIDo = () => {
             </p>
             
             <div className="mt-6 pt-4 border-t border-border">
-              <div className="flex items-center text-xs text-muted">
-                <span className="mr-2">Technologies used:</span>
-                <div className="flex space-x-2 opacity-70">
-                  {Array(4).fill(0).map((_, i) => (
-                    <div key={i} className="w-1 h-1 rounded-full bg-accent"></div>
+              <div className="flex flex-col space-y-2">
+                <div className="flex items-center text-xs text-muted">
+                  <span className="mr-2">Technologies:</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {service.technologies.map((tech, i) => (
+                    <span 
+                      key={i} 
+                      className="text-xs font-mono px-2 py-1 rounded-md bg-background-accent text-secondary border border-border"
+                    >
+                      {tech}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -127,7 +138,7 @@ const WhatIDo = () => {
       
       {/* Bottom gradient line */}
       <motion.div 
-        className="mt-24 h-px bg-gradient-to-r from-transparent via-border to-transparent"
+        className="mt-24 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"
         initial={{ opacity: 0, scaleX: 0 }}
         whileInView={{ opacity: 1, scaleX: 1 }}
         viewport={{ once: true }}

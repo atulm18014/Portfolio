@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+// Import directly - this is more reliable
+import atulImage from '../assets/img/atul.jpg';
 
 const About = () => {
   const technologies = [
@@ -34,9 +36,9 @@ const About = () => {
             <div className="absolute inset-0 rounded-md bg-accent/5 opacity-30 blur-2xl -z-10"></div>
             <div className="absolute -inset-0.5 rounded-md bg-gradient-to-tr from-accent/20 to-transparent opacity-20 -z-10"></div>
             <div className="relative h-full w-full overflow-hidden rounded-md bg-background-lighter border border-border">
-              {/* Replace with your actual profile image */}
+              {/* Use direct import for more reliable handling */}
               <img 
-                src="src/assets/img/atul.jpg" 
+                src={atulImage} 
                 alt="Atul Maurya" 
                 className="h-full w-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
               />

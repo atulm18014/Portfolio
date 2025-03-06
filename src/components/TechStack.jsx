@@ -238,8 +238,8 @@ const TechStack = () => {
             transition={{ duration: 0.2, delay: 0.05 * i }}
             className={`px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-300 whitespace-nowrap 
               ${activeCategory === category.id 
-                ? 'bg-background-accent border border-accent/30 text-accent shadow-glow' 
-                : 'bg-background-lighter border border-border hover:border-border-accent'}`}
+                ? 'bg-accent/90 text-white font-medium shadow-glow' 
+                : 'bg-background-lighter border border-border hover:border-accent/20'}`}
           >
             {category.label}
           </motion.button>
@@ -248,7 +248,7 @@ const TechStack = () => {
       
       {/* Tech Grid - reduced card size */}
       <motion.div 
-        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3" // Adjusted grid columns and gap
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" // Adjusted grid columns and gap
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -262,22 +262,22 @@ const TechStack = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: 0.03 * (index % 15) }}
             whileHover={{ 
-              y: -4, // Reduced hover lift
-              boxShadow: '0 4px 12px rgba(0, 230, 202, 0.1)',
-              borderColor: 'rgba(0, 230, 202, 0.3)',
+              y: -5, 
+              boxShadow: '0 5px 15px rgba(88, 166, 255, 0.08)',
+              borderColor: 'rgba(88, 166, 255, 0.2)',
             }}
-            className="glass-card flex flex-col items-center justify-center py-4 px-4 group" // Reduced padding
+            className="glass-card flex flex-col items-center justify-center py-6 px-4 group aspect-square"
           >
-            <div className="w-14 h-14 mb-3 flex items-center justify-center relative"> {/* Reduced from w-16 h-16 */}
+            <div className="w-16 h-16 mb-4 flex items-center justify-center relative"> {/* Reduced from w-16 h-16 */}
               {/* Subtle glow effect on hover */}
               <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-accent/5 blur-md transition-opacity duration-500"></div>
               <img 
                 src={tech.icon} 
                 alt={tech.name} 
-                className={`w-10 h-10 object-contain relative z-10 transition-all duration-300 group-hover:scale-110 ${tech.darkMode ? 'invert' : ''}`} // Reduced from w-14 h-14
+                className={`w-14 h-14 object-contain relative z-10 transition-all duration-300 group-hover:scale-110 ${tech.darkMode ? 'brightness-[1.15]' : ''}`} // Reduced from w-14 h-14
               />
             </div>
-            <span className="font-medium text-xs text-muted group-hover:text-primary transition-colors duration-300 text-center mt-1"> {/* Reduced from text-sm */}
+            <span className="font-medium text-sm text-muted group-hover:text-primary transition-colors duration-300 text-center mt-2"> {/* Reduced from text-sm */}
               {tech.name}
             </span>
           </motion.div>

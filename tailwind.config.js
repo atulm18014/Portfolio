@@ -7,24 +7,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Monochromatic black palette
+        // Pure black theme with minimal accents
         background: {
           DEFAULT: "#000000", // Pure black
-          alt: "#0A0A0A", // Slightly lighter black
-          lighter: "#111111", // Subtle dark gray for cards
-          accent: "#171717", // Accent background
+          alt: "#0A0A0A",    // Nearly black
+          lighter: "#111111", // Very dark gray
+          accent: "#171717",  // Slightly lighter for accents
         },
-        primary: "#FFFFFF",
+        primary: "#FFFFFF", // Pure white
         secondary: "#AAAAAA", // Light gray
         muted: "#777777", // Medium gray
         accent: {
-          DEFAULT: "#00E6CA", // Muted teal as primary accent
-          secondary: "#FFFFFF", // White as secondary accent
-          subtle: "rgba(0, 230, 202, 0.2)", // Transparent accent for glows
+          DEFAULT: "#58A6FF", // Vibrant blue accent
+          secondary: "#79C0FF", // Lighter blue accent
+          subtle: "rgba(88, 166, 255, 0.15)", // Transparent accent for glows
+          tertiary: "#33B3AE", // Teal accent for variety
+          quaternary: "#F78166", // Coral accent for contrast
         },
         border: {
           DEFAULT: "#222222", // Dark gray border
-          accent: "#333333", // Lighter border
+          accent: "#333333",  // Slightly lighter border
         }
       },
       fontFamily: {
@@ -35,13 +37,13 @@ export default {
       boxShadow: {
         card: "0 20px 30px -15px rgba(0, 0, 0, 0.7)",
         subtle: "0 5px 15px rgba(0, 0, 0, 0.3)",
-        glow: "0 0 15px rgba(0, 230, 202, 0.2)",
-        'glow-strong': "0 0 20px rgba(0, 230, 202, 0.4)",
+        glow: "0 0 15px rgba(88, 166, 255, 0.2)",
+        'glow-strong': "0 0 20px rgba(88, 166, 255, 0.4)",
       },
       backgroundImage: {
-        'gradient-minimal': 'linear-gradient(180deg, #000000 0%, #060606 100%)',
-        'gradient-accent': 'linear-gradient(90deg, #00E6CA 0%, rgba(0, 230, 202, 0.3) 100%)',
-        'glass': 'linear-gradient(135deg, rgba(40, 40, 40, 0.1), rgba(20, 20, 20, 0.05))',
+        'gradient-minimal': 'linear-gradient(180deg, #0D1117 0%, #161B22 100%)',
+        'gradient-accent': 'linear-gradient(90deg, #58A6FF 0%, rgba(88, 166, 255, 0.3) 100%)',
+        'glass': 'linear-gradient(135deg, rgba(33, 38, 45, 0.4), rgba(13, 17, 23, 0.3))',
       },
       animation: {
         'slow-pulse': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',

@@ -8,10 +8,10 @@ const ProjectCard = ({ index, title, description, tags, github, external, image 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass-card group overflow-hidden hover:shadow-glow hover:border-accent/20 transition-all duration-500"
+      className="glass-card group overflow-hidden hover:shadow-glow hover:border-accent/30 transition-all duration-500"
     >
-      <div className="relative h-48 bg-background-lighter overflow-hidden">
-        <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+      <div className="relative h-48 bg-background-alt overflow-hidden">
+        <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
         <img 
           src={image || "https://via.placeholder.com/600x400?text=Project"}
           alt={title} 
@@ -23,7 +23,7 @@ const ProjectCard = ({ index, title, description, tags, github, external, image 
         <p className="text-secondary mb-4 text-sm flex-grow line-clamp-3">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map(tag => (
-            <span key={tag} className="text-xs font-mono px-2 py-1 rounded-md bg-background-accent text-muted border border-border">{tag}</span>
+            <span key={tag} className="text-xs font-mono px-2 py-1 rounded-md bg-background-accent text-secondary border border-border">{tag}</span>
           ))}
         </div>
         <div className="flex gap-4 items-center">
@@ -69,11 +69,12 @@ const Projects = () => {
   const projects = [
     {
       title: "Financial Dashboard",
-      description: "A comprehensive dashboard for tracking financial metrics and visualizing data trends with interactive charts.",
+      description: "A comprehensive dashboard for tracking financial metrics.",
       tags: ["React", "D3.js", "Tailwind CSS"],
       github: "https://github.com/username/project1",
       external: "https://project1.com",
-      image: "/projects/project1.jpg",
+      // Fix image paths to use placeholder images until real ones are available
+      image: "https://placehold.co/600x400/0D1117/58A6FF?text=Financial+Dashboard",
     },
     {
       title: "E-commerce Platform",
@@ -81,7 +82,7 @@ const Projects = () => {
       tags: ["Next.js", "Node.js", "MongoDB"],
       github: "https://github.com/username/project2",
       external: "https://project2.com",
-      image: "/projects/project2.jpg",
+      image: "https://placehold.co/600x400/0D1117/58A6FF?text=E-commerce+Platform",
     },
     {
       title: "Content Management System",
@@ -89,7 +90,7 @@ const Projects = () => {
       tags: ["React", "GraphQL", "PostgreSQL"],
       github: "https://github.com/username/project3",
       external: "https://project3.com",
-      image: "/projects/project3.jpg",
+      image: "https://placehold.co/600x400/0D1117/58A6FF?text=Content+Management",
     },
     {
       title: "Productivity Timer",
@@ -97,7 +98,7 @@ const Projects = () => {
       tags: ["JavaScript", "CSS", "Firebase"],
       github: "https://github.com/username/project4",
       external: "https://project4.com",
-      image: "/projects/project4.jpg",
+      image: "https://placehold.co/600x400/0D1117/58A6FF?text=Productivity+Timer",
     },
   ];
 
@@ -145,7 +146,7 @@ const Projects = () => {
         ))}
       </div>
       
-      {/* View All Projects Button */}
+      {/* View All Projects Button - updated styling to match other buttons */}
       <motion.div 
         className="mt-16 text-center"
         initial={{ opacity: 0, y: 20 }}
@@ -153,8 +154,11 @@ const Projects = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <Link to="/projects" className="btn btn-primary inline-flex items-center group">
-          <span>View All Projects</span>
+        <Link 
+          to="/projects" 
+          className="btn btn-primary inline-flex items-center group px-6 py-3 shadow-md hover:shadow-glow"
+        >
+          <span className="mr-1">View All Projects</span>
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             className="h-4 w-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" 

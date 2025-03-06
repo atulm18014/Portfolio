@@ -49,13 +49,13 @@ function App() {
   
   return (
     <Router>
-      <div className="min-h-screen bg-background text-secondary relative">
-        {/* Background elements */}
-        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-60">
+      <div className="min-h-screen bg-black text-secondary relative">
+        {/* Subtle background elements */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-30">
           {/* Subtle grid pattern */}
           <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-5"></div>
           
-          {/* Subtle glow accents */}
+          {/* Very subtle glow accents */}
           <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-accent/5 mix-blend-screen filter blur-[100px]"></div>
           <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full bg-accent/5 mix-blend-screen filter blur-[80px]"></div>
         </div>
