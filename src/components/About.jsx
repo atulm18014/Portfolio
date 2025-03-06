@@ -94,12 +94,13 @@ const About = () => {
           
           <Link 
             to="/about" 
-            className="btn btn-outline self-start flex items-center group"
+            className="relative group overflow-hidden rounded-md px-7 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium shadow-lg hover:shadow-glow transition-all duration-300 inline-flex items-center self-start"
           >
-            <span>Read More About Me</span>
+            <span className="absolute inset-0 w-1/2 bg-gradient-to-r from-purple-400 to-purple-600 opacity-0 group-hover:opacity-20 transform group-hover:-translate-x-80 transition-all duration-1000 ease-out rounded-md"></span>
+            <span className="relative z-10">Read More About Me</span>
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              className="h-4 w-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" 
+              className="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1 relative z-10" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"

@@ -88,7 +88,7 @@ const Header = ({ menuOpen, setMenuOpen }) => {
               href="/resume.pdf" 
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline text-xs py-1.5 px-4 border-accent/50"
+              className="btn btn-outline text-base py-1.5 px-4 border-accent/50"
             >
               Resume
             </a>

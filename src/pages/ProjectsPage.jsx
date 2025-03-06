@@ -8,66 +8,79 @@ const ProjectsPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Sample projects data - replace with your actual projects
+  // Updated projects with real repositories data
   const projects = [
     {
       id: 1,
-      title: 'Decentralized Exchange',
-      description: 'A fully functioning decentralized exchange built on Ethereum, enabling users to swap tokens, provide liquidity, and earn rewards.',
-      tags: ['Solidity', 'React', 'Web3.js', 'Hardhat'],
-      image: '/images/projects/dex.jpg',
-      liveLink: 'https://dex-example.com',
-      githubLink: 'https://github.com/yourusername/dex',
+      title: 'Crypto-Vault',
+      description: 'A secure cryptocurrency wallet application with multi-signature support, hardware wallet integration, and real-time market data. Features include transaction history, portfolio tracking, and enhanced security measures.',
+      tags: ['React', 'Solidity', 'Web3.js', 'Hardhat', 'Ethers.js'],
+      image: '/images/projects/crypto-vault.jpg',
+      githubLink: 'https://github.com/atulm18014/crypto-vault',
+      demoLink: 'https://crypto-vault-demo.netlify.app',
       featured: true,
     },
     {
       id: 2,
-      title: 'NFT Marketplace',
-      description: 'A marketplace for creating, buying, selling, and trading NFTs with features like auctions, collections, and artist profiles.',
-      tags: ['Next.js', 'TypeScript', 'Solidity', 'IPFS'],
-      image: '/images/projects/nft.jpg',
-      liveLink: 'https://nft-marketplace-example.com',
-      githubLink: 'https://github.com/yourusername/nft-marketplace',
+      title: 'Smart-Contract-Security',
+      description: 'A comprehensive collection of secure smart contract templates and security best practices for Ethereum blockchain developers. Includes vulnerability analysis, security patterns, and auditing tools.',
+      tags: ['Solidity', 'Smart Contracts', 'Security', 'Ethereum', 'Auditing'],
+      image: '/images/projects/smart-contract.jpg',
+      githubLink: 'https://github.com/atulm18014/Smart-Contract-Security',
       featured: true,
     },
     {
       id: 3,
-      title: 'AI Content Generator',
-      description: 'An application leveraging machine learning to generate high-quality content for blogs, marketing, and social media.',
-      tags: ['Python', 'TensorFlow', 'Flask', 'React'],
-      image: '/images/projects/ai.jpg',
-      liveLink: 'https://ai-generator-example.com',
-      githubLink: 'https://github.com/yourusername/ai-generator',
+      title: 'DecShare',
+      description: 'Decentralized file sharing platform using IPFS and Ethereum blockchain for secure, censorship-resistant content distribution. Supports file encryption, access control, and token-based incentives.',
+      tags: ['React', 'IPFS', 'Ethereum', 'Node.js', 'FileCoin'],
+      image: '/images/projects/decshare.jpg',
+      githubLink: 'https://github.com/atulm18014/DecShare',
       featured: false,
     },
     {
       id: 4,
-      title: 'Smart Contract Audit Tool',
-      description: 'An automated tool for analyzing and identifying vulnerabilities in Ethereum smart contracts.',
-      tags: ['Node.js', 'Solidity', 'GraphQL', 'Docker'],
-      image: '/images/projects/audit.jpg',
-      liveLink: 'https://audit-tool-example.com',
-      githubLink: 'https://github.com/yourusername/audit-tool',
+      title: 'NFT-Marketplace',
+      description: 'A full-featured NFT marketplace with minting, trading, and auction functionality built on Ethereum. Includes creator royalties, collection management, and cross-chain compatibility.',
+      tags: ['Next.js', 'Solidity', 'IPFS', 'TypeScript', 'ERC-721'],
+      image: '/images/projects/nft-marketplace.jpg',
+      githubLink: 'https://github.com/atulm18014/NFT-Marketplace',
       featured: false,
     },
     {
       id: 5,
-      title: 'Decentralized Social Media',
-      description: 'A censorship-resistant social platform built on blockchain technology with user-owned data and content.',
-      tags: ['React', 'Node.js', 'IPFS', 'Ethereum'],
-      image: '/images/projects/social.jpg',
-      liveLink: 'https://decentral-social-example.com',
-      githubLink: 'https://github.com/yourusername/decentral-social',
+      title: 'DeFi-Lending-Protocol',
+      description: 'A decentralized lending protocol enabling users to lend and borrow cryptocurrencies with dynamic interest rates based on market conditions.',
+      tags: ['Solidity', 'React', 'DeFi', 'Smart Contracts', 'Web3'],
+      image: '/images/projects/defi-lending.jpg',
+      githubLink: 'https://github.com/atulm18014/DeFi-Lending-Protocol',
       featured: false,
     },
     {
       id: 6,
-      title: 'Portfolio Analytics Dashboard',
-      description: 'A comprehensive dashboard for tracking cryptocurrency investments, analyzing performance, and visualizing market trends.',
-      tags: ['React', 'D3.js', 'Express', 'MongoDB'],
-      image: '/images/projects/dashboard.jpg',
-      liveLink: 'https://crypto-dashboard-example.com',
-      githubLink: 'https://github.com/yourusername/crypto-dashboard',
+      title: 'BlockVote',
+      description: 'Secure and transparent voting system built on blockchain technology, ensuring tamper-proof election processes with verifiable results.',
+      tags: ['Ethereum', 'Solidity', 'React', 'Zero-Knowledge Proofs'],
+      image: '/images/projects/blockvote.jpg',
+      githubLink: 'https://github.com/atulm18014/BlockVote',
+      featured: false,
+    },
+    {
+      id: 7,
+      title: 'AI-Trading-Bot',
+      description: 'Cryptocurrency trading bot using machine learning algorithms to analyze market trends and execute automated trading strategies.',
+      tags: ['Python', 'TensorFlow', 'APIs', 'Data Analysis'],
+      image: '/images/projects/ai-trading.jpg',
+      githubLink: 'https://github.com/atulm18014/AI-Trading-Bot',
+      featured: false,
+    },
+    {
+      id: 8,
+      title: 'Cross-Chain-Bridge',
+      description: 'A bridge solution for transferring assets between different blockchain networks with focus on security and minimal transaction fees.',
+      tags: ['Solidity', 'Polkadot', 'Cosmos', 'Interoperability'],
+      image: '/images/projects/cross-chain.jpg',
+      githubLink: 'https://github.com/atulm18014/Cross-Chain-Bridge',
       featured: false,
     },
   ];
@@ -120,7 +133,7 @@ const ProjectsPage = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-secondary text-lg max-w-3xl"
           >
-            Explore my portfolio of projects spanning web development, blockchain applications, and machine learning solutions. Each project represents a unique problem-solving approach and technical implementation.
+            Explore my portfolio of blockchain and web development projects. Each project represents innovative solutions to complex challenges in the decentralized ecosystem.
           </motion.p>
         </motion.div>
         
@@ -151,7 +164,7 @@ const ProjectsPage = () => {
                     <div className="relative h-full w-full overflow-hidden rounded-lg bg-background-lighter border border-border">
                       {/* Project image */}
                       <img
-                        src={project.image || "https://via.placeholder.com/800x450?text=Project+Image"}
+                        src={project.image || `https://placehold.co/800x450/0D1117/58A6FF?text=${project.title.replace(/ /g, '+')}`}
                         alt={project.title}
                         className="h-full w-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
                       />
@@ -175,23 +188,35 @@ const ProjectsPage = () => {
                     ))}
                   </div>
                   
-                  <div className="flex space-x-4">
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      View Project
-                    </a>
+                  <div className="flex flex-wrap gap-4">
                     <a
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-outline"
+                      className="relative group overflow-hidden rounded-md px-6 py-2.5 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
                     >
-                      Source Code
+                      <span className="absolute inset-0 w-1/2 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transform group-hover:-translate-x-80 transition-all duration-1000 ease-out rounded-md"></span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="relative z-10">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      </svg>
+                      <span className="relative z-10">GitHub</span>
                     </a>
+                    {project.demoLink && (
+                      <a
+                        href={project.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative group overflow-hidden rounded-md px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                      >
+                        <span className="absolute inset-0 w-full bg-white opacity-0 group-hover:opacity-20 transform group-hover:-translate-x-full transition-all duration-1000 ease-out rounded-md"></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="relative z-10">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        <span className="relative z-10">Live Demo</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -215,15 +240,16 @@ const ProjectsPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card group hover:-translate-y-2"
+                className="card group hover:-translate-y-2 p-5 border border-gray-800 rounded-xl bg-gradient-to-b from-black to-gray-950"
               >
                 {/* Project Image */}
-                <div className="relative aspect-video w-full overflow-hidden rounded mb-4">
+                <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-4 border border-gray-800">
                   <img
-                    src={project.image || "https://via.placeholder.com/400x225?text=Project+Image"}
+                    src={project.image || `https://placehold.co/400x225/0D1117/58A6FF?text=${project.title.replace(/ /g, '+')}`}
                     alt={project.title}
                     className="h-full w-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
                 </div>
                 
                 {/* Project Details */}
@@ -234,42 +260,54 @@ const ProjectsPage = () => {
                   {project.tags.slice(0, 3).map((tag, i) => (
                     <span 
                       key={i} 
-                      className="px-2 py-0.5 text-xs rounded bg-background-accent border border-border text-secondary"
+                      className="px-2 py-0.5 text-xs rounded-md bg-gray-800 border border-gray-700 text-gray-300"
                     >
                       {tag}
                     </span>
                   ))}
                   {project.tags.length > 3 && (
-                    <span className="px-2 py-0.5 text-xs rounded bg-background-accent border border-border text-secondary">
+                    <span className="px-2 py-0.5 text-xs rounded-md bg-gray-800 border border-gray-700 text-gray-300">
                       +{project.tags.length - 3}
                     </span>
                   )}
                 </div>
                 
-                <div className="flex space-x-3">
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-minimal text-sm"
-                  >
-                    View Project
-                  </a>
+                <div className="flex flex-wrap gap-3">
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted hover:text-secondary text-sm"
+                    className="relative inline-flex items-center gap-1 px-3.5 py-1.5 text-sm font-medium text-white bg-gray-800 rounded-md overflow-hidden group"
                   >
-                    Code →
+                    <span className="absolute w-0 h-full bg-gradient-to-r from-blue-500 to-blue-600 left-0 top-0 group-hover:w-full transition-all duration-500 ease-out -z-10"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="transition-transform group-hover:scale-110">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    Code
                   </a>
+                  {project.demoLink && (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative inline-flex items-center gap-1 px-3.5 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-md overflow-hidden group"
+                    >
+                      <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:scale-110">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                      Demo
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.section>
         
-        {/* Get In Touch Section */}
+        {/* Get In Touch Section - FIXED */}
         <motion.section 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -278,7 +316,7 @@ const ProjectsPage = () => {
         >
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Interested in working together?</h2>
-            <p className="text-secondary text-lg mb-8">I'm always open to discussing new projects or partnership opportunities.</p>
+            <p className="text-secondary text-lg mb-8">I'm always open to discussing blockchain development, smart contract security, and innovative web3 projects.</p>
             <a 
               href="mailto:atulmaurya18.04@gmail.com" 
               className="btn btn-primary"

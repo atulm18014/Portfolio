@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // Define a simple arrow right SVG component
 const ArrowRight = ({ size = 24 }) => (
@@ -37,19 +38,19 @@ const Footer = () => {
             <h3 className="text-orange-500 font-semibold text-xl">Explore</h3>
             <ul className="space-y-2 mx-auto text-center text-lg">
               <li>
-                <a href="#" className="hover:underline  hover:text-accent">
+                <Link to="/" className="hover:underline  hover:text-accent">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline  hover:text-accent">
+                <Link to="/about" className="hover:underline  hover:text-accent">
                   About Me
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline  hover:text-accent">
-                  Contact
-                </a>
+                <Link to="/projects" className="hover:underline  hover:text-accent">
+                  Projects
+                </Link>
               </li>
             </ul>
           </div>
@@ -154,11 +155,14 @@ const Footer = () => {
                 </h3>
                 <p className="text-gray-400 text-sm">Explore Projects</p>
               </div>
-              <a href="#projects" className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-green-500 transition duration-300 group">
+              <Link 
+                to="/projects" 
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 text-green-500 transition duration-300 group"
+              >
                 <span className="transform transition-transform duration-500 group-hover:-rotate-45 inline-block">
                   <ArrowRight size={20} />
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

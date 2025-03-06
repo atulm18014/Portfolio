@@ -93,7 +93,7 @@ const TechStack = () => {
     },
     { 
       name: 'Web3.js', 
-      icon: 'https://seeklogo.com/images/W/web3js-logo-62DEE79B50-seeklogo.com.png', 
+      icon: 'https://raw.githubusercontent.com/ChainSafe/web3.js/HEAD/assets/logo/web3js.svg', 
       category: 'blockchain' 
     },
     { 
@@ -190,8 +190,7 @@ const TechStack = () => {
     <section id="techstack" className="py-24">
       <div className="mb-16 max-w-3xl">
         <motion.p
-          className="font-mono subheading mb-3 text-base"ome
-          About          
+          className="font-mono subheading mb-3 text-base"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -223,7 +222,7 @@ const TechStack = () => {
       
       {/* Category Filter */}
       <motion.div 
-        className="flex flex-wrap gap-3 mb-16 overflow-x-auto pb-2 custom-scrollbar" // Increased gap and bottom margin
+        className="flex flex-wrap gap-3 mb-16 overflow-x-auto pb-2 custom-scrollbar"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -239,8 +238,8 @@ const TechStack = () => {
             transition={{ duration: 0.2, delay: 0.05 * i }}
             className={`px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-300 whitespace-nowrap 
               ${activeCategory === category.id 
-                ? 'bg-accent/90 text-white font-medium shadow-glow' 
-                : 'bg-background-lighter border border-border hover:border-accent/20'}`}
+                ? 'bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-glow' 
+                : 'bg-gray-800/30 text-gray-300 hover:bg-gray-800/60 hover:text-white'}`}
           >
             {category.label}
           </motion.button>
@@ -249,7 +248,7 @@ const TechStack = () => {
       
       {/* Tech Grid - reduced card size */}
       <motion.div 
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" // Adjusted grid columns and gap
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
