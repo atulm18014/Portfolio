@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const TechStack = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const scrollContainerRef = useRef(null);
   
-  // Updated categories with blockchain and languages
+  // Categories remain the same
   const categories = [
     { id: 'all', label: 'All' },
     { id: 'frontend', label: 'Frontend' },
@@ -15,7 +16,7 @@ const TechStack = () => {
     { id: 'tools', label: 'Tools & DevOps' }
   ];
   
-  // Updated technologies with fixed icon URLs
+  // Technologies remain the same
   const technologies = [
     // Frontend
     { 
@@ -56,7 +57,8 @@ const TechStack = () => {
       name: 'Express', 
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', 
       category: 'backend',
-      darkMode: true
+      darkMode: true,
+      invertColors: true  // Added invertColors property for Express
     },
     { 
       name: 'MongoDB', 
@@ -83,7 +85,8 @@ const TechStack = () => {
     { 
       name: 'Solidity', 
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg', 
-      category: 'blockchain' 
+      category: 'blockchain',
+      invertColors: true  // Added invertColors property for Solidity
     },
     // Fixed Ethereum icon
     { 
@@ -173,7 +176,8 @@ const TechStack = () => {
       name: 'GitHub', 
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', 
       category: 'tools',
-      darkMode: true
+      darkMode: true,
+      invertColors: true  // Added invertColors property to invert GitHub logo
     },
     { 
       name: 'Figma', 
@@ -186,11 +190,70 @@ const TechStack = () => {
     ? technologies 
     : technologies.filter(tech => tech.category === activeCategory);
 
+  // Only duplicate items for infinite scroll effect when "all" is selected
+  const techToDisplay = activeCategory === 'all' 
+    ? [...filteredTech, ...filteredTech]  // Duplicate for looping
+    : filteredTech;  // No duplication for specific categories
+
+  // Auto-scrolling effect
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    // Reset scroll position when filtered tech changes
+    scrollContainer.scrollLeft = 0;
+
+    // Only setup infinite scrolling for "all" category
+    if (activeCategory === 'all') {
+      let animationId;
+      let scrollPos = 0;
+      const scrollSpeed = 0.5; // Pixels per frame - adjust for speed
+
+      const scroll = () => {
+        scrollPos += scrollSpeed;
+        
+        // Reset when we've scrolled through the first set of items
+        if (scrollPos >= scrollContainer.scrollWidth / 2) {
+          scrollPos = 0;
+        }
+        
+        scrollContainer.scrollLeft = scrollPos;
+        animationId = requestAnimationFrame(scroll);
+      };
+
+      // Start the animation
+      animationId = requestAnimationFrame(scroll);
+
+      // Pause animation on hover or touch
+      const pauseAnimation = () => {
+        cancelAnimationFrame(animationId);
+      };
+
+      const resumeAnimation = () => {
+        animationId = requestAnimationFrame(scroll);
+      };
+
+      scrollContainer.addEventListener('mouseenter', pauseAnimation);
+      scrollContainer.addEventListener('mouseleave', resumeAnimation);
+      scrollContainer.addEventListener('touchstart', pauseAnimation);
+      scrollContainer.addEventListener('touchend', resumeAnimation);
+
+      // Clean up
+      return () => {
+        cancelAnimationFrame(animationId);
+        scrollContainer.removeEventListener('mouseenter', pauseAnimation);
+        scrollContainer.removeEventListener('mouseleave', resumeAnimation);
+        scrollContainer.removeEventListener('touchstart', pauseAnimation);
+        scrollContainer.removeEventListener('touchend', resumeAnimation);
+      };
+    }
+  }, [filteredTech, activeCategory]);
+
   return (
-    <section id="techstack" className="py-24">
-      <div className="mb-16 max-w-3xl">
+    <section id="techstack" className="pt-24">
+      <div className="mb-16 max-w-4xl">
         <motion.p
-          className="font-mono subheading mb-3 text-base"
+          className="subheading mb-3 font-bebas font-semibold text-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -200,7 +263,7 @@ const TechStack = () => {
         </motion.p>
         
         <motion.h2 
-          className="font-bebas mb-5 text-5xl md:text-6xl tracking-wide"
+          className="font-bebas mb-5 text-4xl md:text-5xl tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -210,7 +273,7 @@ const TechStack = () => {
         </motion.h2>
         
         <motion.p
-          className="font-montserrat text-secondary text-balance text-lg font-light"
+          className="font-montserrat text-secondary text-balance text-xl font-light"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -222,7 +285,7 @@ const TechStack = () => {
       
       {/* Category Filter */}
       <motion.div 
-        className="flex flex-wrap gap-3 mb-16 overflow-x-auto pb-2 custom-scrollbar"
+        className="flex flex-wrap gap-3 mb-10 overflow-x-auto pb-2 custom-scrollbar"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -236,7 +299,7 @@ const TechStack = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.2, delay: 0.05 * i }}
-            className={`px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-300 whitespace-nowrap 
+            className={`px-5 py-2.5 text-lg font-medium rounded-md transition-all duration-300 whitespace-nowrap 
               ${activeCategory === category.id 
                 ? 'bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-glow' 
                 : 'bg-gray-800/30 text-gray-300 hover:bg-gray-800/60 hover:text-white'}`}
@@ -246,43 +309,90 @@ const TechStack = () => {
         ))}
       </motion.div>
       
-      {/* Tech Grid - reduced card size */}
-      <motion.div 
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-      >
-        {filteredTech.map((tech, index) => (
-          <motion.div
-            key={tech.name}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: 0.03 * (index % 15) }}
-            whileHover={{ 
-              y: -5, 
-              boxShadow: '0 5px 15px rgba(255, 107, 53, 0.1)',
-              borderColor: 'rgba(255, 107, 53, 0.3)',
+      {/* Auto-scrolling tech logos container */}
+      <div className="relative overflow-hidden rounded-lg">
+        {/* Left edge fading effect - from black to transparent (right direction) */}
+        <div className="absolute left-0 top-0 bottom-0 w-28 z-20 pointer-events-none"
+            style={{ 
+              background: 'linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%)'
             }}
-            className="glass-card flex flex-col items-center justify-center py-6 px-4 group aspect-square"
-          >
-            <div className="w-16 h-16 mb-4 flex items-center justify-center relative"> {/* Reduced from w-16 h-16 */}
-              {/* Subtle glow effect on hover */}
-              <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-accent/5 blur-md transition-opacity duration-500"></div>
-              <img 
-                src={tech.icon} 
-                alt={tech.name} 
-                className={`w-14 h-14 object-contain relative z-10 transition-all duration-300 group-hover:scale-110 ${tech.darkMode ? 'brightness-[1.15]' : ''}`} // Reduced from w-14 h-14
-              />
-            </div>
-            <span className="font-medium text-sm text-muted group-hover:text-primary transition-colors duration-300 text-center mt-2"> {/* Reduced from text-sm */}
-              {tech.name}
-            </span>
-          </motion.div>
-        ))}
-      </motion.div>
+        ></div>
+        <div className="absolute left-0 top-0 bottom-0 w-36 z-10 pointer-events-none blur-md"
+            style={{ 
+              background: 'linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%)'
+            }}
+        ></div>
+        
+        {/* Right edge fading effect - from black to transparent (left direction) */}
+        <div className="absolute right-0 top-0 bottom-0 w-28 z-20 pointer-events-none"
+            style={{ 
+              background: 'linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%)'
+            }}
+        ></div>
+        <div className="absolute right-0 top-0 bottom-0 w-36 z-10 pointer-events-none blur-md"
+            style={{ 
+              background: 'linear-gradient(to left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%)'
+            }}
+        ></div>
+   
+        {/* Infinite scroll container - increased padding for all views */}
+        <div 
+          ref={scrollContainerRef}
+          className={`flex items-center gap-10 py-8 overflow-x-auto scrollbar-none ${
+            activeCategory !== 'all' ? 'justify-center flex-wrap' : ''
+          } px-32`}
+          style={{ 
+            scrollbarWidth: 'none', 
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
+          {techToDisplay.map((tech, index) => {
+            // Calculate distance from edges for all items
+            let opacity = 1;
+            
+            if (activeCategory === 'all') {
+              // Fade based on position for scrolling items
+              const isEdgeItem = index < 3 || index > techToDisplay.length - 4;
+              opacity = isEdgeItem ? 0.6 : 1;
+            } else {
+              // For wrapped items, calculate distance from container edges
+              const position = index % 5; // Approximate position in row
+              opacity = position === 0 || position === 4 ? 0.7 : 1;
+            }
+            
+            return (
+              <div
+                key={`${tech.name}-${index}`}
+                className="group flex-shrink-0 relative"
+                style={{ opacity }}
+              >
+                {/* Icon with hover effect */}
+                <div className="relative">
+                  {/* Subtle glow effect on hover */}
+                  <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-accent/10 blur-lg transition-opacity duration-300"></div>
+                  
+                  <img 
+                    src={tech.icon} 
+                    alt={tech.name} 
+                    className={`w-12 h-12 md:w-14 md:h-14 object-contain relative z-10 transition-all duration-300 
+                      group-hover:scale-110 group-hover:opacity-100
+                      ${tech.darkMode ? 'brightness-[1.2]' : ''}
+                      ${tech.invertColors ? 'invert' : ''}`}
+                    draggable="false"
+                  />
+                </div>
+                
+                {/* Tooltip name on hover */}
+                <div className="absolute left-1/2 -bottom-8 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 
+                  group-hover:opacity-100 transition-all duration-200 whitespace-nowrap pointer-events-none z-20">
+                  {tech.name}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 };

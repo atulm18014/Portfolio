@@ -30,9 +30,9 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative"
+          className="relative flex items-center justify-center"
         >
-          <div className="relative aspect-square w-full max-w-md mx-auto lg:mx-0">
+          <div className="relative aspect-square w-full max-w-md mx-auto">
             <div className="absolute inset-0 rounded-md bg-accent/5 opacity-30 blur-2xl -z-10"></div>
             <div className="absolute -inset-0.5 rounded-md bg-gradient-to-tr from-accent/20 to-transparent opacity-20 -z-10"></div>
             <div className="relative h-full w-full overflow-hidden rounded-md bg-background-lighter border border-border">
@@ -52,12 +52,12 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col justify-center"
+          className="flex flex-col justify-center text-xl"
         >
-          <h2 className="subheading mb-2">ABOUT ME</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">Developing innovative <span className="text-accent">digital solutions</span> for tomorrow.</h3>
+          <h2 className="subheading mb-2 font-bebas font-semibold text-lg">ABOUT ME</h2>
+          <h3 className="text-4xl md:text-5xl font-bold mb-6">Developing innovative <span className="text-accent">digital solutions</span> for tomorrow.</h3>
           
-          <p className="text-secondary mb-4">
+          <p className="text-secondary mb-4 ">
             I'm a full-stack developer with a passion for blockchain technology. With expertise spanning web development, smart contracts, and decentralized applications, I'm dedicated to creating user-centered digital experiences.
           </p>
           

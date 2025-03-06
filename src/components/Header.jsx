@@ -33,7 +33,7 @@ const Header = ({ menuOpen, setMenuOpen }) => {
       <div className="px-5 sm:px-8 md:px-12 lg:px-16 mx-auto max-w-6xl flex items-center justify-between">
         <RouterLink 
           to="/" 
-          className="text-lg cursor-pointer group"
+          className="text-xl cursor-pointer group"
         >
           <motion.span 
             initial={{ opacity: 0, x: -10 }}
@@ -65,14 +65,14 @@ const Header = ({ menuOpen, setMenuOpen }) => {
                   smooth={true}
                   offset={-100}
                   duration={500}
-                  className="text-base font-medium cursor-pointer capitalize text-muted hover:text-accent relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                  className="text-xl font-medium cursor-pointer capitalize text-muted hover:text-accent relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.name}
                 </ScrollLink>
               ) : (
                 <RouterLink
                   to={item.to}
-                  className="text-base font-medium cursor-pointer capitalize text-muted hover:text-accent relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+                  className="text-xl font-medium cursor-pointer capitalize text-muted hover:text-accent relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.name}
                 </RouterLink>
@@ -88,7 +88,7 @@ const Header = ({ menuOpen, setMenuOpen }) => {
               href="/resume.pdf" 
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-outline text-base py-1.5 px-4 border-accent/50"
+              className="btn btn-outline text-xl py-1.5 px-4 border-accent/50"
             >
               Resume
             </a>

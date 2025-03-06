@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 place-content-center justify-evenly">
           {/* Left Section */}
           <div className="w-full text-center mx-auto">
-            <p className="text-2xl font-semibold">
+            <p className="text-3xl font-semibold">
           <span className="text-pink-400">Building </span>  the bridges {" "}
              of <span className="text-blue-400">Decentralization</span> 
             </p>
@@ -35,8 +35,8 @@ const Footer = () => {
 
           {/* Middle Section - Explore */}
           <div className="w-full text-center mx-auto space-y-3">
-            <h3 className="text-orange-500 font-semibold text-xl">Explore</h3>
-            <ul className="space-y-2 mx-auto text-center text-lg">
+            <h3 className="text-orange-500 font-semibold text-2xl">Explore</h3>
+            <ul className="space-y-2 mx-auto text-center text-xl font-semibold">
               <li>
                 <Link to="/" className="hover:underline  hover:text-accent">
                   Home
@@ -57,7 +57,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="w-full text-center mx-auto">
-            <h3 className="text-blue-400 font-semibold text-xl">Follow Me</h3>
+            <h3 className="text-blue-400 font-semibold text-2xl">Follow Me</h3>
             <div className="flex space-x-4 mt-2 justify-center">
               <a
                 href="https://www.linkedin.com/in/maurya-atul/"
@@ -129,10 +129,10 @@ const Footer = () => {
             {/* Contact Me Section */}
             <div className="flex justify-between items-center pb-4 border-b border-gray-600">
               <div>
-                <h3 className="text-xl text-gray-200 font-semibold">
+                <h3 className="text-2xl text-gray-200 font-semibold">
                   Contact Me
                 </h3>
-                <p className="text-gray-400 text-sm">Say Hello!</p>
+                <p className="text-gray-400 text-lg">Say Hello!</p>
               </div>
               <a 
                 href="mailto:atulmaurya18.04@gmail.com" 
@@ -150,10 +150,10 @@ const Footer = () => {
             {/* My Projects Section */}
             <div className="flex justify-between items-center pb-4">
               <div>
-                <h3 className="text-xl text-gray-200 font-semibold">
+                <h3 className="text-2xl text-gray-200 font-semibold">
                   My Projects
                 </h3>
-                <p className="text-gray-400 text-sm">Explore Projects</p>
+                <p className="text-gray-400 text-lg">Explore Projects</p>
               </div>
               <Link 
                 to="/projects" 

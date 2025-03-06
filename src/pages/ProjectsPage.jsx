@@ -109,32 +109,14 @@ const ProjectsPage = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="subheading mb-3"
-          >
-            MY WORK
-          </motion.p>
-          
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-tight"
           >
-            Recent <span className="text-accent">Projects</span>
+            My <span className="text-accent">Projects</span>
           </motion.h1>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-secondary text-lg max-w-3xl"
-          >
-            Explore my portfolio of blockchain and web development projects. Each project represents innovative solutions to complex challenges in the decentralized ecosystem.
-          </motion.p>
         </motion.div>
         
         {/* Featured Projects Section */}
@@ -144,7 +126,6 @@ const ProjectsPage = () => {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="mb-24"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-12">Featured Projects</h2>
           
           <div className="space-y-32">
             {projects.filter(project => project.featured).map((project, index) => (
@@ -175,13 +156,13 @@ const ProjectsPage = () => {
                 {/* Project Content */}
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">{project.title}</h3>
-                  <p className="text-secondary mb-6">{project.description}</p>
+                  <p className="text-secondary mb-6 text-xl">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-8">
                     {project.tags.map((tag, i) => (
                       <span 
                         key={i} 
-                        className="px-3 py-1 text-xs rounded bg-background-accent border border-border text-secondary"
+                        className="px-3 py-1 text-sm rounded bg-background-accent border border-border text-secondary"
                       >
                         {tag}
                       </span>
@@ -230,7 +211,7 @@ const ProjectsPage = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-12">All Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">All Projects</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.filter(project => !project.featured).map((project, index) => (
@@ -253,8 +234,8 @@ const ProjectsPage = () => {
                 </div>
                 
                 {/* Project Details */}
-                <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
-                <p className="text-muted text-sm mb-4 line-clamp-2">{project.description}</p>
+                <h3 className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
+                <p className="text-muted text-lg mb-4 line-clamp-2">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.slice(0, 3).map((tag, i) => (

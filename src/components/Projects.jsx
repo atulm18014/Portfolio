@@ -21,14 +21,14 @@ const ProjectCard = ({ index, title, description, tags, github, external, image 
       </div>
       
       {/* Project Details */}
-      <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors duration-300">{title}</h3>
-      <p className="text-muted text-sm mb-4 line-clamp-2">{description}</p>
+      <h3 className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors duration-300">{title}</h3>
+      <p className="text-muted text-lg mb-4 line-clamp-2">{description}</p>
       
       <div className="flex flex-wrap gap-2 mb-4">
         {tags.map((tag, i) => (
           <span 
             key={i} 
-            className="px-2 py-0.5 text-xs rounded-md bg-gray-800 border border-gray-700 text-gray-300"
+            className="px-2 py-0.5 text-sm rounded-md bg-gray-800 border border-gray-700 text-gray-300"
           >
             {tag}
           </span>
@@ -107,10 +107,10 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-20">
       <div className="mb-16">
         <motion.p
-          className="subheading mb-2"
+          className="subheading mb-2 font-bebas font-semibold text-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -120,7 +120,7 @@ const Projects = () => {
         </motion.p>
         
         <motion.h2 
-          className="heading mb-8"
+          className="heading mb-8 text-4xl md:text-5xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -130,7 +130,7 @@ const Projects = () => {
         </motion.h2>
         
         <motion.p
-          className="text-secondary max-w-2xl mb-12"
+          className="text-secondary max-w-4xl mb-12 text-xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -163,10 +163,10 @@ const Projects = () => {
           className="relative group overflow-hidden rounded-md px-6 py-2.5 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center"
         >
           <span className="absolute inset-0 w-1/2 bg-gradient-to-r from-purple-400 to-purple-600 opacity-0 group-hover:opacity-20 transform group-hover:-translate-x-80 transition-all duration-1000 ease-out rounded-md"></span>
-          <span className="mr-1 relative z-10">View All Projects</span>
+          <span className="relative z-10 text-xl">View All Projects</span>
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            className="h-4 w-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1 relative z-10" 
+            className="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1 relative z-10" 
             fill="none" 
             viewBox="0 0 24 24" 
             stroke="currentColor"
@@ -174,7 +174,7 @@ const Projects = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </Link>
-        <p className="text-muted mt-4 text-sm">Explore my complete portfolio of work</p>
+        <p className="text-muted mt-4 text-lg">Explore my complete portfolio of work</p>
       </motion.div>
     </section>
   );

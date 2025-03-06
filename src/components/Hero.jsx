@@ -13,13 +13,13 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-lg text-orange-500 font-mono mb-3">
+        <h1 className="text-xl text-orange-500 font-montserrat mb-3">
           Hi, my name is
         </h1>
-        <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-4">
+        <h2 className="text-6xl sm:text-8xl md:text-9xl font-bold mb-4">
           Atul Maurya
         </h2>
-        <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-secondary mb-8">
+        <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-secondary mb-8">
           <TypeAnimation
             sequence={[
               "I build things for the web.",
@@ -40,7 +40,7 @@ const Hero = () => {
             }}
           />
         </h3>
-        <p className="text-secondary max-w-4xl text-lg mb-12">
+        <p className="text-secondary max-w-4xl text-xl mb-12">
           I'm deeply passionate about technology, with particular interests in{" "}
           <b>Blockchain</b>, <b>Open Source Development</b>, and{" "}
           <b>Machine Learning</b>. I'm eager to contribute to impactful projects
@@ -50,9 +50,9 @@ const Hero = () => {
         <div>
           <Link
             to="/projects"
-            className="relative group overflow-hidden rounded-md px-7 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium shadow-lg hover:shadow-glow transition-all duration-300 inline-flex items-center"
+            className="text-xl relative group overflow-hidden rounded-md px-7 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium shadow-lg hover:shadow-glow transition-all duration-300 inline-flex items-center"
           >
-            <span className="absolute inset-0 w-1/2 bg-gradient-to-r from-purple-400 to-purple-600 opacity-0 group-hover:opacity-20 transform group-hover:-translate-x-80 transition-all duration-1000 ease-out rounded-md"></span>
+            
             <span className="relative z-10">Check out my work</span>
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
