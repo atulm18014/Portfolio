@@ -65,7 +65,7 @@ const About = () => {
             My technical journey has equipped me with a deep understanding of both front-end and back-end technologies, allowing me to build complete solutions from concept to deployment.
           </p>
           
-          <div className="grid grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-8">
             <div>
               <h4 className="text-lg font-semibold mb-2">Frontend</h4>
               <ul className="text-muted space-y-1">
@@ -80,6 +80,14 @@ const About = () => {
                 <li>Node.js</li>
                 <li>Python</li>
                 <li>MongoDB & SQL</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-2">Blockchain</h4>
+              <ul className="text-muted space-y-1">
+                <li>Solidity</li>
+                <li>Web3.js</li>
+                <li>Hardhat & Truffle</li>
               </ul>
             </div>
           </div>
