@@ -85,7 +85,7 @@ const Header = ({ menuOpen, setMenuOpen }) => {
             transition={{ duration: 0.3, delay: 0.3 }}
           >
             <a 
-              href="/resume.pdf" 
+              href="https://drive.google.com/file/d/1QggIUcOOGFWF2VwGPIS30w2-_W0Sh5A5/view?usp=sharing" 
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline text-xl py-1.5 px-4 border-accent/50"

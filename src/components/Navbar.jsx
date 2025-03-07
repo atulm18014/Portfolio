@@ -35,7 +35,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <h1 className="text-2xl font-bold text-accent">Atul</h1>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden md:flex md:items-center">
             <div className="ml-10 flex items-baseline space-x-4">
               {navLinks.map((link) => (
                 <Link

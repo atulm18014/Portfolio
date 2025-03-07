@@ -14,7 +14,9 @@ const ProjectCard = ({ index, title, description, tags, github, external, image 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="card group hover:-translate-y-2 p-5 border border-gray-800 rounded-xl bg-gradient-to-b from-black to-gray-950 transition-all duration-500"
+      className="card group hover:-translate-y-2 p-5 border-2 border-gray-700/50 hover:border-gray-600 rounded-xl 
+        bg-gradient-to-b from-black to-gray-950 transition-all duration-500 
+        shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_5px_25px_rgba(0,0,0,0.3)]"
     >
       {/* Project Image with improved loading and error handling */}
       <div className="relative aspect-video w-full overflow-hidden rounded-lg mb-4 border border-gray-800">

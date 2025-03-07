@@ -63,7 +63,7 @@ const Menu = ({ isOpen, setIsOpen }) => {
                 transition={{ delay: menuItems.length * 0.1 + 0.1 }}
               >
                 <a 
-                  href="/resume.pdf" 
+                  href="https://drive.google.com/file/d/1QggIUcOOGFWF2VwGPIS30w2-_W0Sh5A5/view?usp=sharing" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-4 py-2 px-6 border border-accent text-accent rounded hover:bg-accent/10 transition-colors"
