@@ -14,7 +14,19 @@ const ProjectsPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Updated projects with real repositories data
+  // Helper function to convert description text to bullet points
+  const getBulletPoints = (description, maxPoints = 4) => {
+    // Split by periods, then filter out empty strings
+    const points = description
+      .split('.')
+      .map(point => point.trim())
+      .filter(point => point.length > 5) // Remove very short fragments
+      .slice(0, maxPoints); // Limit number of points
+      
+    return points;
+  };
+
+  // Updated projects with real repositories data and consistent property naming
   const projects = [
     {
       id: 1,
@@ -24,41 +36,41 @@ const ProjectsPage = () => {
       tags: ["React", "Solidity", "Web3.js", "Hardhat", "Ethers.js"],
       image: regitrustImage,
       githubLink: "https://github.com/atulm18014/crypto-vault",
-      demoLink: "https://crypto-vault-demo.netlify.app",
+      // external: "https://crypto-vault-demo.netlify.app", // Commented out as in original
       featured: true,
     },
     {
       id: 2,
       title: "Smart-Contract-Security",
       description:
-        "A comprehensive collection of secure smart contract templates and security best practices for Ethereum blockchain developers. Includes vulnerability analysis, security patterns, and auditing tools.",
-      tags: ["Solidity", "Smart Contracts", "Security", "Ethereum", "Auditing"],
+        "A cutting-edge GHG emissions monitoring system that delivers real-time data, advanced analytics, and AI-driven insights to drive sustainability initiatives. Minimize carbon footprints, and optimize environmental management in smart cities. By leveraging IoT sensors, blockchain transparency, and predictive modeling, the system empowers policymakers, businesses, and communities to take proactive measures toward a greener future.",
+      tags: ["React", "Node.js", "Python", "AI"],
       image: ghgImage,
-      githubLink: "https://github.com/atulm18014/Smart-Contract-Security",
+      githubLink: "https://github.com/atulm18014/SmartcityDashboard",
       featured: true,
     },
     {
       id: 3,
-      title: "DecShare",
+      title: "Clearify",
       description:
-        "Decentralized file sharing platform using IPFS and Ethereum blockchain for secure, censorship-resistant content distribution. Supports file encryption, access control, and token-based incentives.",
-      tags: ["React", "IPFS", "Ethereum", "Node.js", "FileCoin"],
+        "AI-powered image noise reduction tool leveraging deep learning, computer vision, and GAN-based denoising techniques to enhance image clarity while preserving details, making it ideal for photography, surveillance imaging.",
+      tags: ["React", "Tailwind", "Python"],
       image: clearifyImage,
-      githubLink: "https://github.com/atulm18014/DecShare",
+      githubLink: "https://github.com/atulm18014/Clearify",
+      external: "https://clearify-blue.vercel.app/",  // Changed from demoLink to external
       featured: false,
     },
     {
       id: 4,
-      title: "NFT-Marketplace",
+      title: "Astitva-24",
       description:
-        "A full-featured NFT marketplace with minting, trading, and auction functionality built on Ethereum. Includes creator royalties, collection management, and cross-chain compatibility.",
-      tags: ["Next.js", "Solidity", "IPFS", "TypeScript", "ERC-721"],
+        "Astitva is a vibrant college cultural and technical fest that blends innovation, creativity, and talent, featuring futuristic tech competitions, mesmerizing cultural performances, and an electrifying space-themed experience.",
+      tags: ["React", "Tailwind", "Node.js"],
       image: astitvaImage,
-      githubLink: "https://github.com/atulm18014/NFT-Marketplace",
+      githubLink: "https://github.com/atulm18014/astitva-24",
+      external: "https://astitva-24.netlify.app/",  // Changed from demoLink to external
       featured: false,
     },
-    
- 
   ];
 
   return (
@@ -102,7 +114,7 @@ const ProjectsPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mb-24"
+          className="mb-24 "
         >
           <div className="space-y-32">
             {projects
@@ -142,14 +154,21 @@ const ProjectsPage = () => {
                     </div>
                   </div>
 
-                  {/* Project Content */}
+                  {/* Project Content - With bullet points */}
                   <div>
                     <h3 className="text-2xl md:text-3xl font-bold mb-4">
                       {project.title}
                     </h3>
-                    <p className="text-secondary mb-6 text-xl">
-                      {project.description}
-                    </p>
+                    
+                    {/* Bullet points instead of paragraph */}
+                    <ul className="text-secondary mb-6 space-y-2 list-none">
+                      {getBulletPoints(project.description).map((point, i) => (
+                        <li key={i} className="flex items-start">
+                          <span className="text-accent mr-2 mt-1.5">•</span>
+                          <span className="text-xl">{point}.</span>
+                        </li>
+                      ))}
+                    </ul>
 
                     <div className="flex flex-wrap gap-2 mb-8">
                       {project.tags.map((tag, i) => (
@@ -182,14 +201,15 @@ const ProjectsPage = () => {
                         </svg>
                         <span className="relative z-10">GitHub</span>
                       </a>
-                      {project.demoLink && (
+                      {project.external && (  // Changed from project.demoLink to project.external
                         <a
-                          href={project.demoLink}
+                          href={project.external}  // Changed from project.demoLink to project.external
                           target="_blank"
                           rel="noopener noreferrer"
                           className="relative group overflow-hidden rounded-md px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
                         >
-                          <span className="absolute inset-0 w-full bg-white opacity-0 group-hover:opacity-20 transform group-hover:-translate-x-full transition-all duration-1000 ease-out rounded-md"></span>
+                          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                          <span className="absolute -inset-10 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 blur-xl group-hover:opacity-50 group-hover:blur-md transition-all duration-500"></span>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="18"
@@ -200,7 +220,7 @@ const ProjectsPage = () => {
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            className="relative z-10"
+                            className="transition-transform group-hover:scale-110 group-hover:rotate-12 relative z-10"
                           >
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                             <polyline points="15 3 21 3 21 9"></polyline>
@@ -235,7 +255,7 @@ const ProjectsPage = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="card group hover:-translate-y-2 p-5 
-                    border-2 border-gray-700/40 hover:border-accent/30
+                    border-2 border-gray-700/50 hover:border-accent/30
                     rounded-xl bg-gradient-to-b from-black to-gray-950 
                     transition-all duration-500
                     shadow-lg hover:shadow-accent/5"
@@ -260,9 +280,8 @@ const ProjectsPage = () => {
                   <h3 className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-muted text-lg mb-4 line-clamp-2">
-                    {project.description}
-                  </p>
+                  
+                  <p className="text-muted text-lg mb-4 ">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.slice(0, 3).map((tag, i) => (
@@ -300,14 +319,15 @@ const ProjectsPage = () => {
                       </svg>
                       Code
                     </a>
-                    {project.demoLink && (
+                    {project.external && (  // Changed from project.demoLink to project.external
                       <a
-                        href={project.demoLink}
+                        href={project.external}  // Changed from project.demoLink to project.external
                         target="_blank"
                         rel="noopener noreferrer"
                         className="relative inline-flex items-center gap-1 px-3.5 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-md overflow-hidden group"
                       >
                         <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                        <span className="absolute -inset-10 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 blur-xl group-hover:opacity-50 group-hover:blur-md transition-all duration-500"></span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="14"
@@ -318,13 +338,13 @@ const ProjectsPage = () => {
                           strokeWidth="2"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          className="transition-transform group-hover:scale-110"
+                          className="transition-transform group-hover:scale-110 group-hover:rotate-12"
                         >
                           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                           <polyline points="15 3 21 3 21 9"></polyline>
                           <line x1="10" y1="14" x2="21" y2="3"></line>
                         </svg>
-                        Demo
+                        <span className="relative z-10">Demo</span>
                       </a>
                     )}
                   </div>

@@ -116,7 +116,7 @@ const Projects = () => {
       title: "Clearify",
       description: "An AI-powered image noise reduction tool leveraging deep learning, computer vision, and GAN-based denoising techniques to enhance image clarity while preserving details, making it ideal for photography, surveillance, and medical imaging.",
       tags: ["React", "Tailwind", "Python"],
-      github: "https://github.com/atulm18014/NFT-Marketplace",
+      github: "https://github.com/atulm18014/Clearify",
       external: "https://clearify-blue.vercel.app/",
       image: clearifyImage,  // Use imported image
     },
