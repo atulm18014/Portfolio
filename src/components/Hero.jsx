@@ -22,9 +22,9 @@ const Hero = () => {
         <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-secondary mb-8">
           <TypeAnimation
             sequence={[
-              "I build things for the web.",
+              "I build for the web.",
               2000,
-              "I contribute in Open Source.",
+              "Contribute in Open Source.",
               2000,
               "#Web 3.0",
               2000,

@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const ProjectCard = ({ index, title, description, tags, github, external, image }) => {
+  // Add default demo link for projects without one
+  const demoUrl = external || `https://github.com/atulm18014/${title.replace(/\s+/g, '-')}`;
+  
   return (
     <motion.div 
       initial={{ opacity: 0, y: 30 }}
@@ -22,7 +25,7 @@ const ProjectCard = ({ index, title, description, tags, github, external, image 
       
       {/* Project Details */}
       <h3 className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors duration-300">{title}</h3>
-      <p className="text-muted text-lg mb-4 line-clamp-2">{description}</p>
+      <p className="text-muted text-lg mb-4 ">{description}</p>
       
       <div className="flex flex-wrap gap-2 mb-4">
         {tags.map((tag, i) => (
@@ -50,22 +53,23 @@ const ProjectCard = ({ index, title, description, tags, github, external, image 
             Code
           </a>
         )}
-        {external && (
-          <a
-            href={external}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative inline-flex items-center gap-1 px-3.5 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-md overflow-hidden group"
-          >
-            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:scale-110">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-            Demo
-          </a>
-        )}
+        
+        {/* Enhanced Demo Button - Always present with improved animation */}
+        <a
+          href={demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative inline-flex items-center gap-1 px-3.5 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-md overflow-hidden group"
+        >
+          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+          <span className="absolute -inset-10 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 blur-xl group-hover:opacity-50 group-hover:blur-md transition-all duration-500"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:scale-110 group-hover:rotate-12">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span>Live Demo</span>
+        </a>
       </div>
     </motion.div>
   );
@@ -75,34 +79,34 @@ const Projects = () => {
   // Updated with real projects from GitHub repositories
   const projects = [
     {
-      title: "Crypto-Vault",
-      description: "A secure cryptocurrency wallet application with multi-signature support and real-time market data integration.",
-      tags: ["React", "Solidity", "Web3.js", "Hardhat"],
-      github: "https://github.com/atulm18014/crypto-vault",
-      external: "https://crypto-vault-demo.netlify.app",
-      // Use placeholder until real images are available
-      image: "/images/projects/crypto-vault.jpg",
+      title: "RegiTrust",
+      description: "A blockchain-powered land registry system that enhances security, transparency, and efficiency in recording property ownership and transactions while preventing fraud, scams, and illegal encroachments.",
+      tags: ["Dart", "Polygon", "Flutter", "MetaMask"],
+      github: "https://github.com/atulm18014/RegiTrust",
+      image: "src/assets/img/regitrust.png",
     },
     {
-      title: "Smart-Contract-Security",
-      description: "A collection of secure smart contract templates and security best practices for blockchain developers.",
-      tags: ["Solidity", "Smart Contracts", "Security", "Ethereum"],
-      github: "https://github.com/atulm18014/Smart-Contract-Security",
-      image: "/images/projects/smart-contract.jpg",
+      title: "SmartCity Dashboard",
+      description: "An advanced GHG emissions monitoring system that provides real-time data, analytics, and insights to promote sustainability, reduce carbon footprints, and enhance smart city environmental management.",
+      tags: ["React", "Node.js", "Python", "AI"],
+      github: "https://github.com/atulm18014/SmartcityDashboard",
+      image: "src/assets/img/ghg.png",
     },
     {
-      title: "DecShare",
-      description: "Decentralized file sharing platform using IPFS and Ethereum blockchain for secure and censorship-resistant content distribution.",
-      tags: ["React", "IPFS", "Ethereum", "Node.js"],
-      github: "https://github.com/atulm18014/DecShare",
-      image: "/images/projects/decshare.jpg",
+      title: "Astiva-24",
+      description: "Astitva is a vibrant college cultural and technical fest that blends innovation, creativity, and talent, featuring futuristic tech competitions, mesmerizing cultural performances, and an electrifying space-themed experience.",
+      tags: ["React", "Tailwind", "Node.js"],
+      github: "https://github.com/atulm18014/astitva-24",
+      external: "https://astitva-24.netlify.app/",  // Added demo link
+      image: "src/assets/img/astitva.png",
     },
     {
-      title: "NFT-Marketplace",
-      description: "A comprehensive NFT marketplace with minting, trading, and auction functionality built on Ethereum.",
-      tags: ["Next.js", "Solidity", "IPFS", "TypeScript"],
+      title: "Clearify",
+      description: "An AI-powered image noise reduction tool leveraging deep learning, computer vision, and GAN-based denoising techniques to enhance image clarity while preserving details, making it ideal for photography, surveillance, and medical imaging.",
+      tags: ["React", "Tailwind", "Python"],
       github: "https://github.com/atulm18014/NFT-Marketplace",
-      image: "/images/projects/nft-marketplace.jpg",
+      external: "https://clearify-blue.vercel.app/",  // Added demo link
+      image: "src/assets/img/clearify.png",
     },
   ];
 
@@ -128,16 +132,7 @@ const Projects = () => {
         >
           Featured <span className="text-accent">Projects</span>
         </motion.h2>
-        
-        <motion.p
-          className="text-secondary max-w-4xl mb-12 text-xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Here's a selection of my recent work. These projects showcase my skills in blockchain development, smart contracts, and web applications.
-        </motion.p>
+      
       </div>
       
       <div className="grid md:grid-cols-2 gap-8">
